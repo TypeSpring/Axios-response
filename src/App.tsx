@@ -3,7 +3,7 @@ import "./App.css";
 import Button from "./components/Button";
 
 function App() {
-  const status: string[] = [
+  const status_200: string[] = [
     "200",
     "201",
     "202",
@@ -14,11 +14,11 @@ function App() {
     "207",
     "208",
     "226",
-    "300",
-    "301",
-    "302",
-    "303",
-    "304",
+  ];
+
+  const status_300: string[] = ["300", "301", "302", "303", "304"];
+
+  const status_400: string[] = [
     "400",
     "401",
     "402",
@@ -32,6 +32,8 @@ function App() {
     "503",
     "504",
   ];
+
+  const status_500: string[] = ["500", "501", "502", "503", "504"];
   const [axiosResult, setAxiosResult] = useState<String>("");
   const updateResult = (result: string): void => {
     setAxiosResult(result);
@@ -39,7 +41,21 @@ function App() {
   return (
     <div className="App">
       <div className="App_axiosResult">{axiosResult}</div>
-      {status.map((num) => (
+      {status_200.map((num) => (
+        <Button key={num} num={num} updateResult={updateResult} />
+      ))}
+      <br />
+      {status_300.map((num) => (
+        <Button key={num} num={num} updateResult={updateResult} />
+      ))}
+
+      <br />
+      {status_400.map((num) => (
+        <Button key={num} num={num} updateResult={updateResult} />
+      ))}
+
+      <br />
+      {status_500.map((num) => (
         <Button key={num} num={num} updateResult={updateResult} />
       ))}
     </div>
